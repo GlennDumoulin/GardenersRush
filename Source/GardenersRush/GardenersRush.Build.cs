@@ -2,9 +2,9 @@
 
 using UnrealBuildTool;
 
-public class ChaosAtTheDaycare : ModuleRules
+public class GardenersRush : ModuleRules
 {
-	public ChaosAtTheDaycare(ReadOnlyTargetRules Target) : base(Target)
+	public GardenersRush(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 

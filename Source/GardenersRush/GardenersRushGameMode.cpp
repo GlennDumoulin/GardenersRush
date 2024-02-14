@@ -1,14 +1,14 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
-#include "ChaosAtTheDaycareGameMode.h"
-#include "ChaosAtTheDaycarePlayerController.h"
-#include "ChaosAtTheDaycareCharacter.h"
+#include "GardenersRushGameMode.h"
+#include "GardenersRushPlayerController.h"
+#include "GardenersRushCharacter.h"
 #include "UObject/ConstructorHelpers.h"
 
-AChaosAtTheDaycareGameMode::AChaosAtTheDaycareGameMode()
+AGardenersRushGameMode::AGardenersRushGameMode()
 {
 	// use our custom PlayerController class
-	PlayerControllerClass = AChaosAtTheDaycarePlayerController::StaticClass();
+	PlayerControllerClass = AGardenersRushPlayerController::StaticClass();
 
 	// set default pawn class to our Blueprinted character
 	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/TopDown/Blueprints/BP_TopDownCharacter"));

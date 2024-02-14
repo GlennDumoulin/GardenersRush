@@ -3,13 +3,13 @@
 using UnrealBuildTool;
 using System.Collections.Generic;
 
-public class ChaosAtTheDaycareTarget : TargetRules
+public class GardenersRushTarget : TargetRules
 {
-	public ChaosAtTheDaycareTarget(TargetInfo Target) : base(Target)
+	public GardenersRushTarget(TargetInfo Target) : base(Target)
 	{
 		Type = TargetType.Game;
 		DefaultBuildSettings = BuildSettingsVersion.V2;
 		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_1;
-		ExtraModuleNames.Add("ChaosAtTheDaycare");
+		ExtraModuleNames.Add("GardenersRush");
 	}
 }

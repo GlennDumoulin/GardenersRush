@@ -6,18 +6,18 @@
 #include "Templates/SubclassOf.h"
 #include "GameFramework/PlayerController.h"
 #include "InputActionValue.h"
-#include "ChaosAtTheDaycarePlayerController.generated.h"
+#include "GardenersRushPlayerController.generated.h"
 
 /** Forward declaration to improve compiling times */
 class UNiagaraSystem;
 
 UCLASS()
-class AChaosAtTheDaycarePlayerController : public APlayerController
+class AGardenersRushPlayerController : public APlayerController
 {
 	GENERATED_BODY()
 
 public:
-	AChaosAtTheDaycarePlayerController();
+	AGardenersRushPlayerController();
 
 	/** Time Threshold to know if it was a short press */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input)

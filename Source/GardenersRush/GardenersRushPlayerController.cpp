@@ -1,16 +1,16 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
-#include "ChaosAtTheDaycarePlayerController.h"
+#include "GardenersRushPlayerController.h"
 #include "GameFramework/Pawn.h"
 #include "Blueprint/AIBlueprintHelperLibrary.h"
 #include "NiagaraSystem.h"
 #include "NiagaraFunctionLibrary.h"
-#include "ChaosAtTheDaycareCharacter.h"
+#include "GardenersRushCharacter.h"
 #include "Engine/World.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 
-AChaosAtTheDaycarePlayerController::AChaosAtTheDaycarePlayerController()
+AGardenersRushPlayerController::AGardenersRushPlayerController()
 {
 	bShowMouseCursor = true;
 	DefaultMouseCursor = EMouseCursor::Default;
@@ -18,7 +18,7 @@ AChaosAtTheDaycarePlayerController::AChaosAtTheDaycarePlayerController()
 	FollowTime = 0.f;
 }
 
-void AChaosAtTheDaycarePlayerController::BeginPlay()
+void AGardenersRushPlayerController::BeginPlay()
 {
 	// Call the base class  
 	Super::BeginPlay();
@@ -30,7 +30,7 @@ void AChaosAtTheDaycarePlayerController::BeginPlay()
 	}
 }
 
-void AChaosAtTheDaycarePlayerController::SetupInputComponent()
+void AGardenersRushPlayerController::SetupInputComponent()
 {
 	// set up gameplay key bindings
 	Super::SetupInputComponent();
@@ -39,26 +39,26 @@ void AChaosAtTheDaycarePlayerController::SetupInputComponent()
 	if (UEnhancedInputComponent* EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(InputComponent))
 	{
 		// Setup mouse input events
-		EnhancedInputComponent->BindAction(SetDestinationClickAction, ETriggerEvent::Started, this, &AChaosAtTheDaycarePlayerController::OnInputStarted);
-		EnhancedInputComponent->BindAction(SetDestinationClickAction, ETriggerEvent::Triggered, this, &AChaosAtTheDaycarePlayerController::OnSetDestinationTriggered);
-		EnhancedInputComponent->BindAction(SetDestinationClickAction, ETriggerEvent::Completed, this, &AChaosAtTheDaycarePlayerController::OnSetDestinationReleased);
-		EnhancedInputComponent->BindAction(SetDestinationClickAction, ETriggerEvent::Canceled, this, &AChaosAtTheDaycarePlayerController::OnSetDestinationReleased);
+		EnhancedInputComponent->BindAction(SetDestinationClickAction, ETriggerEvent::Started, this, &AGardenersRushPlayerController::OnInputStarted);
+		EnhancedInputComponent->BindAction(SetDestinationClickAction, ETriggerEvent::Triggered, this, &AGardenersRushPlayerController::OnSetDestinationTriggered);
+		EnhancedInputComponent->BindAction(SetDestinationClickAction, ETriggerEvent::Completed, this, &AGardenersRushPlayerController::OnSetDestinationReleased);
+		EnhancedInputComponent->BindAction(SetDestinationClickAction, ETriggerEvent::Canceled, this, &AGardenersRushPlayerController::OnSetDestinationReleased);
 
 		// Setup touch input events
-		EnhancedInputComponent->BindAction(SetDestinationTouchAction, ETriggerEvent::Started, this, &AChaosAtTheDaycarePlayerController::OnInputStarted);
-		EnhancedInputComponent->BindAction(SetDestinationTouchAction, ETriggerEvent::Triggered, this, &AChaosAtTheDaycarePlayerController::OnTouchTriggered);
-		EnhancedInputComponent->BindAction(SetDestinationTouchAction, ETriggerEvent::Completed, this, &AChaosAtTheDaycarePlayerController::OnTouchReleased);
-		EnhancedInputComponent->BindAction(SetDestinationTouchAction, ETriggerEvent::Canceled, this, &AChaosAtTheDaycarePlayerController::OnTouchReleased);
+		EnhancedInputComponent->BindAction(SetDestinationTouchAction, ETriggerEvent::Started, this, &AGardenersRushPlayerController::OnInputStarted);
+		EnhancedInputComponent->BindAction(SetDestinationTouchAction, ETriggerEvent::Triggered, this, &AGardenersRushPlayerController::OnTouchTriggered);
+		EnhancedInputComponent->BindAction(SetDestinationTouchAction, ETriggerEvent::Completed, this, &AGardenersRushPlayerController::OnTouchReleased);
+		EnhancedInputComponent->BindAction(SetDestinationTouchAction, ETriggerEvent::Canceled, this, &AGardenersRushPlayerController::OnTouchReleased);
 	}
 }
 
-void AChaosAtTheDaycarePlayerController::OnInputStarted()
+void AGardenersRushPlayerController::OnInputStarted()
 {
 	StopMovement();
 }
 
 // Triggered every frame when the input is held down
-void AChaosAtTheDaycarePlayerController::OnSetDestinationTriggered()
+void AGardenersRushPlayerController::OnSetDestinationTriggered()
 {
 	// We flag that the input is being pressed
 	FollowTime += GetWorld()->GetDeltaSeconds();
@@ -90,7 +90,7 @@ void AChaosAtTheDaycarePlayerController::OnSetDestinationTriggered()
 	}
 }
 
-void AChaosAtTheDaycarePlayerController::OnSetDestinationReleased()
+void AGardenersRushPlayerController::OnSetDestinationReleased()
 {
 	// If it was a short press
 	if (FollowTime <= ShortPressThreshold)
@@ -104,13 +104,13 @@ void AChaosAtTheDaycarePlayerController::OnSetDestinationReleased()
 }
 
 // Triggered every frame when the input is held down
-void AChaosAtTheDaycarePlayerController::OnTouchTriggered()
+void AGardenersRushPlayerController::OnTouchTriggered()
 {
 	bIsTouch = true;
 	OnSetDestinationTriggered();
 }
 
-void AChaosAtTheDaycarePlayerController::OnTouchReleased()
+void AGardenersRushPlayerController::OnTouchReleased()
 {
 	bIsTouch = false;
 	OnSetDestinationReleased();

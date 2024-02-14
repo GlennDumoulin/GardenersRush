@@ -4,15 +4,15 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
-#include "ChaosAtTheDaycareGameMode.generated.h"
+#include "GardenersRushGameMode.generated.h"
 
 UCLASS(minimalapi)
-class AChaosAtTheDaycareGameMode : public AGameModeBase
+class AGardenersRushGameMode : public AGameModeBase
 {
 	GENERATED_BODY()
 
 public:
-	AChaosAtTheDaycareGameMode();
+	AGardenersRushGameMode();
 };
 
 
